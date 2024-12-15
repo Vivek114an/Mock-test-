@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mock Test Application</h1>
+
+        <!-- Page 1: Insert Questions -->
+        <div id="page1">
+            <h2>Insert Questions</h2>
+            <form id="questionForm">
+                <input type="text" id="questionText" placeholder="Enter Question Text"><br>
+                <input type="file" id="questionImage" accept="image/*" onchange="previewImage()" multiple><br>
+                <div id="imagePreviewContainer"></div>
+                <button type="button" onclick="saveQuestions()">Save Questions</button>
+            </form>
+            <h3>Questions List:</h3>
+            <ul id="questionsList"></ul>
+        </div>
+
+        <!-- Page 2: Mock Test -->
+        <div id="page2" class="hidden">
+            <h2>Mock Test</h2>
+            <div id="timer">Time Left: 40:00</div>
+            <form id="mockTestForm">
+                <div id="testQuestions"></div>
+                <div id="ratingButtons">
+                    <button type="button" onclick="rateQuestion('OK')">OK</button>
+                    <button type="button" onclick="rateQuestion('Good')">Good</button>
+                    <button type="button" onclick="rateQuestion('Best')">Best</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Page 3: Results -->
+        <div id="page3" class="hidden">
+            <h2>Results</h2>
+            <h3>OK Questions:</h3>
+            <ul id="okQuestions"></ul>
+            <h3>Good Questions:</h3>
+            <ul id="goodQuestions"></ul>
+            <h3>Best Questions:</h3>
+            <ul id="bestQuestions"></ul>
+        </div>
+
+        <!-- Navigation and Action Buttons -->
+        <button onclick="showPage(1)" id="insertBtn">Insert Questions</button>
+        <button onclick="showPage(2)" id="startTestBtn">Start Mock Test</button>
+        <button onclick="showPage(3)" id="showResultsBtn">Show Results</button>
+        <button onclick="toggleDarkMode()" id="darkModeBtn">Dark Mode</button>
+        <button onclick="toggleFullScreen()" id="fullScreenBtn">Full Screen</button>
+
+        <!-- Navigation Buttons (hidden initially) -->
+        <div id="navigationButtons" class="hidden">
+            <button type="button" onclick="previousQuestion()">Previous</button>
+            <button type="button" onclick="nextQuestion()">Next</button>
+            <button type="button" onclick="submitTest()">Submit Test</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
